@@ -17,10 +17,7 @@
  */
 package com.alibabacloud.polar_race.engine.base;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
-public class FileMetaData
-{
+public class FileMetaData {
     /**
      * .sst文件编号
      */
@@ -30,6 +27,8 @@ public class FileMetaData
      * File size in bytes
      */
     private final int fileSize;
+
+    // 用于保存SSTable照中key的范围
 
     /**
      * Smallest internal key served by table (8B)
@@ -41,6 +40,7 @@ public class FileMetaData
      */
     private final Slice largest;
 
+    // 文件的元数据保存在头部
     public FileMetaData(Slice data) {
     	this.number = data.getInt(0);
     	this.fileSize = data.getInt(Util.SIZE_OF_INT);

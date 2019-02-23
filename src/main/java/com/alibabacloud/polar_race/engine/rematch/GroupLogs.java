@@ -1,10 +1,9 @@
 package com.alibabacloud.polar_race.engine.rematch;
 
+import com.alibabacloud.polar_race.engine.base.Util;
+
 import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
-
-import com.alibabacloud.polar_race.engine.base.Util;
-import com.alibabacloud.polar_race.engine.preliminary.PreDoubleLog;
 
 public class GroupLogs {
 	private final File databaseDir;
@@ -20,7 +19,7 @@ public class GroupLogs {
 
 	public void add(byte[] key, byte[] value) throws Exception {
 		// 获取key高10位
-		int fileNum = ((key[0] & 0xff) << 2) | ((key[1] & 0xff) >> 6);
+		int fileNum = ((key[0] & 0xff) << 2) | ((key[1] & 0xff) >> 6); // TODO ??
 		// 新建log
 		if (!exists[fileNum].get()) {
 			synchronized (exists[fileNum]) {

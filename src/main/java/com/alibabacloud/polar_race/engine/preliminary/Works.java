@@ -1,6 +1,7 @@
 package com.alibabacloud.polar_race.engine.preliminary;
 
-import java.io.IOException;
+import com.alibabacloud.polar_race.engine.base.Util;
+
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
@@ -9,12 +10,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-
-import com.alibabacloud.polar_race.engine.base.Util;
 
 public class Works {
-	private static final ExecutorService pool = Executors.newFixedThreadPool(2 * 64 + 1, new HanlderThreadFactory());
+
+	private static final ExecutorService pool = Executors.newFixedThreadPool(2 * 2 + 1, new HanlderThreadFactory());
 	//	private BlockingQueue<MappedByteBuffer> bq = new LinkedBlockingQueue<>();
 	public static ExecutorService getPool() {
 		return pool;
